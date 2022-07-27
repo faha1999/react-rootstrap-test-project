@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
 // icons
@@ -26,14 +26,75 @@ const routes = [
 ];
 
 export const Sidebar = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  const inputAnimation = {
+    hidden: {
+      width: 0,
+      padding: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    show: {
+      width: '140px',
+      padding: '5px 15px',
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
+  const showAnimation = {
+    hidden: {
+      width: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    show: {
+      opacity: 1,
+      width: 'auto',
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div className="mainContainer">
-      <motion.div animate={{ width: '200px' }} className="sidebar">
+      <motion.div
+        animate={{
+          width: isOpen ? '200px' : '45px',
+
+          transition: {
+            duration: 0.5,
+            type: 'spring',
+            damping: 10,
+          },
+        }}
+        className="sidebar"
+      >
         <div className="top-section">
-          <h1 className="logo">faha1999</h1>
+          <AnimatePresence>
+            {isOpen && (
+              <motion.h1
+                variants={showAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                className="logo"
+              >
+                faha1999
+              </motion.h1>
+            )}
+          </AnimatePresence>
 
           <div className="bars">
-            <FaBars />
+            <FaBars onClick={toggle} />
           </div>
         </div>
 
@@ -41,14 +102,42 @@ export const Sidebar = ({ children }) => {
           <div className="search-icon">
             <BiSearch />
           </div>
-          <input placeholder="Search..." />
+
+          <AnimatePresence>
+            {isOpen && (
+              <motion.input
+                variants={inputAnimation}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                placeholder="Search..."
+              />
+            )}
+          </AnimatePresence>
         </div>
 
         <section className="routes">
           {routes.map((route) => (
-            <NavLink to={route.path} key={route.name} className="link">
+            <NavLink
+              activeClassName="active"
+              to={route.path}
+              key={route.name}
+              className="link"
+            >
               <div className="icon">{route.icon}</div>
-              <div className="title">{route.name}</div>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    variants={showAnimation}
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                    className="title"
+                  >
+                    {route.name}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </NavLink>
           ))}
         </section>
