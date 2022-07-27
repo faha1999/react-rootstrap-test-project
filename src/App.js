@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavbarMenu } from './components/Nav';
+// import { NavbarMenu } from './components/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Sidebar } from './components/Sidebar';
 
 function App() {
   return (
     <>
-      <NavbarMenu />
+      {/* <NavbarMenu /> */}
+      <Sidebar />
     </>
   );
 }
