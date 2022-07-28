@@ -13,7 +13,8 @@
   background: rgb(0, 7, 61);
   color: white;
   height: 100vh;
-  overflow-y: auto;
+  overflow: auto;
+  position: fixed;
 
   .top-section {
     display: flex;
@@ -28,6 +29,7 @@
 
     .bars {
       width: 30px;
+      cursor: pointer;
     }
   }
 
@@ -82,6 +84,13 @@
 
 main {
   padding: 10px;
+}
+
+.content {
+}
+
+.w100 {
+  height: 100vh;
 }
 
 //

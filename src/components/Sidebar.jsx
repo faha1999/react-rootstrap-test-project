@@ -66,7 +66,7 @@ export const Sidebar = ({ children }) => {
 
   return (
     <div className="mainContainer">
-      <motion.div
+      <motion.aside
         animate={{
           width: isOpen ? '200px' : '45px',
 
@@ -119,7 +119,7 @@ export const Sidebar = ({ children }) => {
         <section className="routes">
           {routes.map((route) => (
             <NavLink
-              activeClassName="active"
+              activeclassname="active"
               to={route.path}
               key={route.name}
               className="link"
@@ -141,8 +141,20 @@ export const Sidebar = ({ children }) => {
             </NavLink>
           ))}
         </section>
-      </motion.div>
-      <main>{children}</main>
+      </motion.aside>
+      <motion.main
+        animate={{
+          paddingLeft: isOpen ? '210px' : '55px',
+
+          transition: {
+            duration: 0.5,
+            type: 'spring',
+            damping: 10,
+          },
+        }}
+      >
+        {children}
+      </motion.main>
     </div>
   );
 };
