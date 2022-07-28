@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 // icons
 import { FaBars, FaHome, FaUser } from 'react-icons/fa';
@@ -12,16 +13,19 @@ const routes = [
     path: '/',
     name: 'Dashboard',
     icon: <FaHome />,
+    id: 'home',
   },
   {
     path: '/about',
     name: 'About',
     icon: <FaUser />,
+    id: 'about',
   },
   {
     path: '/contact',
     name: 'Contact',
     icon: <MdMessage />,
+    id: 'contact',
   },
 ];
 
@@ -118,11 +122,15 @@ export const Sidebar = ({ children }) => {
 
         <section className="routes">
           {routes.map((route) => (
-            <NavLink
-              activeclassname="active"
-              to={route.path}
+            <Link
+              activeClass="active"
+              to={route.id}
               key={route.name}
               className="link"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
             >
               <div className="icon">{route.icon}</div>
               <AnimatePresence>
@@ -138,7 +146,7 @@ export const Sidebar = ({ children }) => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </NavLink>
+            </Link>
           ))}
         </section>
       </motion.aside>
