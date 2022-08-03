@@ -5,7 +5,7 @@ import { Link } from 'react-scroll';
 
 // icons
 import { FaBars, FaHome, FaUser } from 'react-icons/fa';
-import { MdMessage } from 'react-icons/md';
+import { MdMessage, MdWork } from 'react-icons/md';
 import { BiSearch } from 'react-icons/bi';
 
 const routes = [
@@ -26,6 +26,12 @@ const routes = [
     name: 'Contact',
     icon: <MdMessage />,
     id: 'contact',
+  },
+  {
+    path: '/filterWork',
+    name: 'Contact',
+    icon: <MdWork />,
+    id: 'filterWork',
   },
 ];
 
