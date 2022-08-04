@@ -28,10 +28,10 @@ const routes = [
     id: 'contact',
   },
   {
-    path: '/filterWork',
+    path: '/filter',
     name: 'Contact',
     icon: <MdWork />,
-    id: 'filterWork',
+    id: 'filter',
   },
 ];
 
