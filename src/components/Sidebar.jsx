@@ -30,13 +30,13 @@ const routes = [
   },
   {
     path: '/filter',
-    name: 'Contact',
+    name: 'Filter',
     icon: <MdWork />,
     id: 'filter',
   },
   {
     path: '/blog',
-    name: 'Contact',
+    name: 'Blog',
     icon: <ImBlogger />,
     id: 'blog',
   },

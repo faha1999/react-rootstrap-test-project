@@ -12,7 +12,7 @@ export const Content = () => {
       <Home />
       <About />
       <Contact />
-      <Filter />
+      {/* <Filter /> */}
       <Blog />
     </div>
   );
