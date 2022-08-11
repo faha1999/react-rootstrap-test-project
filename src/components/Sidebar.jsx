@@ -7,6 +7,7 @@ import { Link } from 'react-scroll';
 import { FaBars, FaHome, FaUser } from 'react-icons/fa';
 import { MdMessage, MdWork } from 'react-icons/md';
 import { BiSearch } from 'react-icons/bi';
+import { ImBlogger } from 'react-icons/im';
 
 const routes = [
   {
@@ -32,6 +33,12 @@ const routes = [
     name: 'Contact',
     icon: <MdWork />,
     id: 'filter',
+  },
+  {
+    path: '/blog',
+    name: 'Contact',
+    icon: <ImBlogger />,
+    id: 'blog',
   },
 ];
 
